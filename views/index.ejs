@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="modules/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="modules/bootstrap/dist/css/bootstrap-theme.min.css"/>
+    <script src="modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container" align=center>
+        <form action="/calc" method="post">
+          <div class="container" align=center>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                      <div class="container-fluid h1 title">
+                        Simple Calculator (+,-,*,/)
+                      </div>
+                  </div>
+                  <div class="row">
+                    <input type="text" class="col-md-4" name="operand1" id="operand1" placeholder="operand 1">
+                    <label class="col-md-2" ></label>
+                    <input type="text" class="col-md-4" name="operand2" id="operand2" placeholder="operand 2">
+                  </div>
+                  <div class="row">
+                    <button type="submit" class="btn btn-primary  btn-lg" name="op" value="add">+</button>
+                    <button type="submit" class="btn btn-primary  btn-lg" name="op" value="subtract">-</button>
+                    <button type="submit" class="btn btn-primary  btn-lg" name="op" value="multiply">*</button>
+                    <button type="submit" class="btn btn-primary  btn-lg" name="op" value="divide">/</button>
+                  </div> 
+                </div>
+              </div>
+            </div>
+        </form>
+        <div class="row">
+            <button id="clear" type="reset" onclick="reset()" class="btn btn-warning col-md-4 btn-lg" name="op" value="reset">clear</button>
+        </div>
+        <div class="row result">
+		  			<div class="col-xs-12 h2 text-center">
+		  				<strong>Result</strong>
+		  			</div>
+		  		</div>
+		  		<div class="row answer">
+		  			<div class="col-xs-12 h1 text-center">
+		  				{{result}}
+		  			</div>
+		  		</div>
+        </div>
+    </div>
+    <script>
+      function reset()
+      {
+        document.getElementById("operand1").value="";
+        document.getElementById("operand2").value="";
+        console.log("click ");
+      }
+    </script>
+  </body>
+</html>
