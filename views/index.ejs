@@ -16,58 +16,49 @@
     var op2 = op2;
     var opr = opr;
     var msg = msg;
-
-
     %>
-    <div class="container" align=center>
-        <form action="/calc" method="post">
-          <div class="container" align=center>
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="row">
-                      <div class="container-fluid h1 title">
-                        Simple Calculator (+,-,*,/)
-                      </div>
-                  </div>
-                  <div class="row">
-                    <input type="text" class="col-md-4" name="operand1" id="operand1" placeholder="operand 1">
-                    <label class="col-md-2" ></label>
-                    <input type="text" class="col-md-4" name="operand2" id="operand2" placeholder="operand 2">
-                  </div>
-                  <div class="row">
-                    <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="+">+</button>
-                    <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="-">-</button>
-                    <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="*">*</button>
-                    <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="/">/</button>
-                  </div> 
-                </div>
-              </div>
+    <div class="container-fluid " >
+        <form action="/calc" method="post" autocomplete="off">
+          <div class="container-fluid row col-md-12">
+            <div class="row h1 title">
+              Simple Calculator (+,-,*,/)
             </div>
+            <div class="row ">
+              <input type="text" class="col-md-4" name="operand1" id="operand1" placeholder="operand 1">
+            </div>
+            <div class="row ">
+              <input type="text" class="col-md-4" name="operand2" id="operand2" placeholder="operand 2">
+            </div>
+            <div class="row">
+              <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="+">+ Add</button>
+              <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="-">- Sub</button>
+              <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="*">* Mul</button>
+              <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="/">/ Div</button>
+            </div>
+          </div>
         </form>
-        <div class="row">
+        <div class="row ">
             <button id="clear" type="reset" onclick="reset()" class="btn btn-warning col-md-4 btn-lg" name="op" value="reset">clear</button>
         </div>
-		  		<div class="row answer">
-		  			<div class="col-xs-12 h1 text-center">
-              <% if(msg=="1"){%>
-                <h2>Empty Operand </h2>
-              <%}%>
-              <% if(msg=="2"){%>
-                <h2>Entered Operand is not valid </h2>
-              <%}%>
-              <% if(msg=="0" && results!=""){%>
-                <div class="row result">
-                    <div class="col-xs-12 h2 text-center">
-                      <strong>Result</strong>
-                    </div>
-                  </div>
-                <h2>
-                  <%=op1%> <%=opr%> <%=op2%> = <%=results%>
-                </h2>
-              <%}%>
-		  			</div>
-		  		</div>
-        </div>
+		  	<div class="row answer">
+		  		<div class="col-xs-12 h1 ">
+            <% if(msg=="1"){%>
+              <h2>Empty Operand </h2>
+            <%}%>
+            <% if(msg=="2"){%>
+              <h2>Entered Operand is not valid </h2>
+            <%}%>
+            <% if(msg=="0"){%>
+            <div class="row result col-xs-12 h2">
+                <strong>Result</strong>
+            </div>
+            <h2>
+              <%=op1%> <%=opr%> <%=op2%> = <%=results%>
+            </h2>
+            <%}%>
+	  			</div>
+	  		</div>
+      </div>
     </div>
     <script>
       function reset()
