@@ -81,8 +81,3 @@ function calc(req,res){
 
 exports.index=index;
 exports.calc=calc;
-
-exports.add=add;
-exports.subtract=subtract;
-exports.multiply=multiply;
-exports.divide=divide;
