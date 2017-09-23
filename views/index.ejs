@@ -17,49 +17,72 @@
     var opr = opr;
     var msg = msg;
     %>
-    <div class="container-fluid " >
-        <form action="/calc" method="post" autocomplete="off">
-          <div class="container-fluid row col-md-12">
-            <div class="row h1 title">
-              Simple Calculator (+,-,*,/)
-            </div>
-            <div class="row ">
-              <input type="text" class="col-md-4" name="operand1" id="operand1" placeholder="operand 1">
-            </div>
-            <div class="row ">
-              <input type="text" class="col-md-4" name="operand2" id="operand2" placeholder="operand 2">
-            </div>
+    <div class="row">
+      <div class="col-md-4 "></div>
+      <div class="col-md-4 calc-body">
+          <form action="/calc" method="post" autocomplete="off">
             <div class="row">
-              <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="+">+ Add</button>
-              <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="-">- Sub</button>
-              <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="*">* Mul</button>
-              <button type="submit" class="btn btn-primary  btn-lg" name="opr" value="/">/ Div</button>
+                <div class="col-md-12 size" style="text-align:center">
+                  Simple Calculator
+                </div>
+              </div>
+              <div class="row box-space">
+                <div class="col-md-6">
+                  <input class="txt-box" type="text" name="operand1" id="operand1" placeholder="operand 1">
+                </div>
+                <div class="col-md-6">
+                  <input class="txt-box" type="text" name="operand2" id="operand2" placeholder="operand 2">
+                </div>                    
+              </div>
+              <div class="row box-btn">
+                <div class="col-md-3">
+                  <button type="submit" class="btn btn-primary col-md-3 opr-btn" name="opr" value="+">+</button>
+                </div>
+                <div class="col-md-3">
+                  <button type="submit" class="btn btn-primary col-md-3 opr-btn" name="opr" value="-">-</button>
+                </div>
+                <div class="col-md-3">
+                  <button type="submit" class="btn btn-primary col-md-3 opr-btn" name="opr" value="*">x</button>
+                </div>
+                <div class="col-md-3">
+                  <button type="submit" class="btn btn-primary col-md-3 opr-btn" name="opr" value="/">/</button>
+                </div> 
+              </div>
+          </form>
+          <div class="row clr-box">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <button id="clear" type="reset" onclick="reset()" class="btn btn-success clr-btn col-md-4 btn-lg" name="op" value="reset">Clear</button>
+            </div>
+            <div class="col-md-4 "></div>  
+          </div>
+          <div class="row answer">
+            <div class="col-xs-12">
+              <% if(msg=="1"){%>
+                <h2>Empty Operand </h2>
+              <%}%>
+              <% if(msg=="2"){%>
+                <h2>Entered Operand is not valid </h2>
+              <%}%>
+              <% if(msg=="0"){%>
+              <div class="row">
+                <div class="col-md-4"> </div>
+                <div class="col-md-4 size result">
+                    Result
+                </div>
+                <div class="col-md-4"> </div>
+              </div>
+              <div class="row res-exp size">
+                      <%=op1%> <%=opr%> <%=op2%> = <%=results%>
+              </div>
+              <%}%>
             </div>
           </div>
-        </form>
-        <div class="row ">
-            <button id="clear" type="reset" onclick="reset()" class="btn btn-warning col-md-4 btn-lg" name="op" value="reset">clear</button>
-        </div>
-		  	<div class="row answer">
-		  		<div class="col-xs-12 h1 ">
-            <% if(msg=="1"){%>
-              <h2>Empty Operand </h2>
-            <%}%>
-            <% if(msg=="2"){%>
-              <h2>Entered Operand is not valid </h2>
-            <%}%>
-            <% if(msg=="0"){%>
-            <div class="row result col-xs-12 h2">
-                <strong>Result</strong>
-            </div>
-            <h2>
-              <%=op1%> <%=opr%> <%=op2%> = <%=results%>
-            </h2>
-            <%}%>
-	  			</div>
-	  		</div>
+        </div>              
       </div>
+      <div class="col-md-4"></div>  
     </div>
+    
     <script>
       function reset()
       {
